@@ -19,7 +19,7 @@ class EmployeeManager {
       //3 = department
       if (unescape(params[0]) && unescape(params[1]) && unescape(params[2]) && unescape(params[3]) ) {
         this.employees.push({
-            id: this.employee.length + 1,
+            id: this.employees.length + 1,
             name: unescape(params[0]),
             img: unescape(params[1]),
             mail: unescape(params[2])
