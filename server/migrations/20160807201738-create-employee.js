@@ -1,10 +1,10 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    //Define the Books table
-    return queryInterface.createTable('Books', {
+    //Define the Employees table
+    return queryInterface.createTable('Employees', {
 
-      //Define the Books's fields properties
+      //Define the Employees fields properties
       id: {
         allowNull: false,
         autoIncrement: true,
