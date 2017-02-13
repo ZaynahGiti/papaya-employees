@@ -41,6 +41,6 @@ module.exports = {
   },
   down: function(queryInterface, Sequelize) {
     //Define the dropTable command used while rolling back migrations
-    return queryInterface.dropTable('Books');
+    return queryInterface.dropTable('Employees');
   }
 };
