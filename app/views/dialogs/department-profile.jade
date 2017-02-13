@@ -1,0 +1,16 @@
+md-dialog(aria-label="Department Profile" flex="50")
+  md-toolbar
+    .md-toolbar-tools
+      h2 {{$root.selectedDepartment.name}}'s profile
+  md-dialog-content.md-padding
+    md-list
+      md-list-item
+        div.md-list-item-text
+          h3 Biography
+          p {{$root.selectedDepartment.bio}}
+      md-divider
+      md-list-item
+        div.md-list-item-text
+          h3 Employees on Crud
+          p {{$root.selectedDepartment.Employees.length}}
+    

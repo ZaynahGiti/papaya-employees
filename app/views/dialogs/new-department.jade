@@ -1,0 +1,14 @@
+md-dialog(aria-label="New Department" flex="50")
+  md-toolbar
+    .md-toolbar-tools
+      h2 Create New Department
+  form(name="departmentForm" ng-submit="saveDepartment(department)" novalidate)
+    md-dialog-content.md-padding
+      md-input-container.md-block
+        label Name
+        input(ng-model="department.name" type="text" name="department.name" required)
+      md-input-container.md-block
+        label more information
+        textarea(ng-model="department.bio" rows="5" name="department.bio" required)
+    md-dialog-actions
+      md-button(aria-label="Save Department" type="submit" ng-disabled="departmentForm.$invalid") Save

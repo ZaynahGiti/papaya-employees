@@ -1,0 +1,65 @@
+doctype html
+html(lang="en")
+  head
+    title Crud App
+    include views/layouts/head
+  body(layout="row" ng-app="Crud" ng-controller="MainCtrl")
+    
+    //Sidenav
+    md-sidenav.md-whiteframe-z2(md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')")
+      md-toolbar
+        h1 Departments
+      md-content
+        md-list
+          //Loop through the departments list
+          md-list-item(ng-repeat="department in departments")
+            md-button(ng-click="selectDepartment(department)")
+              md-icon.department_avatar(md-svg-icon="department")
+              span(ng-class="{selected: department === selectedDepartment}") {{department.name}}
+      div.new_department
+        //Show dialog to create new department on click.
+        md-button(aria-label="new_department" class="md-fab md-raised md-primary md-mini" ng-click="newDepartmentDialog($event)")
+          ng-md-icon(icon="add")
+            md-tooltip(direction="top") Add new department
+            
+    //Main toolbar
+    div(layout="column" flex)
+      md-toolbar(layout="row")
+        div.md-toolbar-tools
+          md-button.md-button-icon(hide-gt-sm aria-label="Menu" ng-click="toggleSidenav()")
+            ng-md-icon.departments(icon="view_module")
+          h1 Crud
+          
+      //Main content
+      md-content.md-default-theme
+        div.md-padding
+          h2(ng-show="selectedDepartment.Employees.length") Employees by {{selectedDepartment.name}}
+          div.department_actions
+            md-button.department_profile(aria-label="view_profile" class="md-fab md-raised md-primary md-mini" ng-click="showDepartmentProfile($event)")
+              ng-md-icon(icon="person")
+                md-tooltip(direction="bottom") View {{selectedDepartment.name}}'s profile
+                
+            md-button.new_employee(aria-label="new_employee" class="md-fab md-raised md-primary md-mini" ng-click="newEmployeeDialog($event)")
+              ng-md-icon(icon="my_library_add")
+                md-tooltip(direction="bottom") Add new employee by {{selectedDepartment.name}}
+        md-content.md-padding(layout="column")
+          md-card(ng-repeat="employee in selectedDepartment.Employees")
+            div(layout="row" layout-align="end")
+              //Edit and Delete Employees
+              div.employees_menu
+                md-button(aria-label="edit" class="md-fab md-raised md-mini" ng-click="editEmployee($event, employee)")
+                  ng-md-icon(icon="edit")
+                  md-tooltip(direction="bottom") edit employee details
+                md-button(aria-label="delete" class="md-fab md-raised md-mini" ng-click="deleteEmployee($event, employee)")
+                  ng-md-icon(icon="delete")
+                  md-tooltip(direction="bottom") delete employee
+            md-card-title
+              md-card-title-text
+                span.md-headline {{employee.name}}
+                span.md-subhead birth date: {{ employee.birth_date | date: mediumDate}}
+            md-card-content
+              div.md-subhead {{employee.description}}
+              md-chips
+                md-chip profile: {{ employee.profile}}
+                ng-md-icon(icon="person")
+    include views/layouts/footer

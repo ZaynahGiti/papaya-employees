@@ -1,0 +1,21 @@
+md-dialog(aria-label="New Employee" flex="50")
+  md-toolbar
+    .md-toolbar-tools
+      h2 Add New Employee
+  form(name="employeeForm" ng-submit="saveEmployee(employee)" novalidate)
+    md-dialog-content.md-padding
+      div(layout="row")
+        md-input-container(flex)
+          label Name
+          input(ng-model="employee.name" type="text" name="employee.name" required)
+        md-input-container(flex)
+          label Birth Date
+          md-datepicker(ng-model="employee.birth_date" type="text" name="employee.birth_date" required)
+      md-input-container.md-block
+        label Email
+        input(ng-model="employee.email" type="text" name="employee.email" required)
+      md-input-container.md-block
+        label Description
+        textarea(ng-model="employee.description" rows="5" name="employee.description" required)
+    md-dialog-actions
+      md-button(aria-label="Save Employee" type="submit" ng-disabled="employeeForm.$invalid") Add Employee
