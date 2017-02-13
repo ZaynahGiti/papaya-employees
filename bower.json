@@ -1,0 +1,22 @@
+{
+  "name": "employees-papaya-test",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    ""
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-material": "^1.0.9",
+    "angular-material-icons": "^0.7.1"
+  }
+}
