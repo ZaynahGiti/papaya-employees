@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var Employee = sequelize.define('Employee', {
     //Define the data types of the Employee fields
     name: DataTypes.STRING,
-    email: DataTypes.email,
+    email: DataTypes.STRING,
     profile: DataTypes.profile,
     birth_date: DataTypes.DATE,
     description: DataTypes.TEXT,
