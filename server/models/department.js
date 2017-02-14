@@ -1,8 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  //Define the Author model
+  //Define the Department model
   var Department = sequelize.define('Department', {
-    //Define the data types of the Author fields
+    //Define the data types of the Departments fields
     name: DataTypes.STRING,
     bio: DataTypes.TEXT
   }, {
